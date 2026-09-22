@@ -1,0 +1,37 @@
+# Virtual environment
+venv/
+.venv/
+
+# Secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+
+
+# Local database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local conversation history
+backend/chat_history.csv
+backend/data/*_history.csv

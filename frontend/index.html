@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aira - English Conversation Partner</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/icon-aira.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="app-body">
+    <!-- Frutiger Aero Background -->
+    <div class="aero-bg">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+      <div class="cloud cloud-4"></div>
+      <div class="bubble bubble-1"></div>
+      <div class="bubble bubble-2"></div>
+      <div class="bubble bubble-3"></div>
+      <div class="sun-glow"></div>
+    </div>
+
+    <div class="app-container">
+      <!-- ============================================
+        SIDEBAR
+        ============================================ -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          <h2>Aira</h2>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+          <a href="/" class="nav-item active">
+            <i class="fas fa-comments"></i>
+            <span>Chat</span>
+          </a>
+          <a href="/history" class="nav-item">
+            <i class="fas fa-history"></i>
+            <span>History</span>
+          </a>
+          <a href="/statistics" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Statistics</span>
+          </a>
+          <a href="/analysis" class="nav-item">
+            <i class="fas fa-clipboard-check"></i>
+            <span>Daily Analysis</span>
+          </a>
+          <a href="/profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </nav>
+
+        <!-- User Info -->
+        <div class="user-info glass-card">
+          <div class="level-badge">
+            <span class="level-label">Level</span>
+            <span class="level-value" id="levelDisplay">Beginner</span>
+          </div>
+          <div class="stats">
+            <div class="stat-item">
+              <span class="stat-label">Total Chats</span>
+              <span class="stat-value" id="totalChats">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Avg. Input</span>
+              <span class="stat-value" id="avgInput">0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="sidebar-buttons">
+          <button class="btn btn-primary" id="newChatBtn">
+            <i class="fas fa-plus"></i>
+            <span>New Chat</span>
+          </button>
+          <button class="btn btn-danger" id="resetBtn">
+            <i class="fas fa-undo"></i>
+            <span>Reset Session</span>
+          </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="sidebar-footer">
+          <button class="btn btn-logout" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- ============================================
+        MAIN CHAT AREA
+        ============================================ -->
+      <main class="chat-area">
+        <!-- Chat Header -->
+        <header class="chat-header glass-header">
+          <div class="header-info">
+            <div class="avatar">
+              <i class="fas fa-robot"></i>
+              <span class="online-dot"></span>
+            </div>
+            <div class="header-text">
+              <h3>Aira</h3>
+              <span class="status">
+                <span class="status-dot"></span>
+                Online
+              </span>
+            </div>
+          </div>
+          <div class="progress">
+            <span id="progressText">0/20</span>
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                id="progressFill"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Messages -->
+        <div class="messages" id="messagesContainer">
+          <div class="message ai">
+            <div class="avatar-small">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+              <div class="message-bubble">
+                Hello! I'm Aira, your English conversation partner. Let's start
+                speaking!
+              </div>
+              <div class="message-time">Just now</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area glass-input">
+          <button
+            class="btn btn-voice"
+            id="voiceBtn"
+            title="Click to speak (click again to stop)"
+          >
+            <i class="fas fa-microphone"></i>
+          </button>
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type your message in English..."
+            autocomplete="off"
+          />
+          <button class="btn btn-send" id="sendBtn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="input-hint">
+          <i class="fas fa-lightbulb"></i>
+          Type your message or click the mic to speak
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================
+    ANALYSIS PANEL (Quick Feedback)
+    ============================================ -->
+    <aside class="analysis-panel glass-panel" id="analysisPanel">
+      <div class="panel-header">
+        <h3>
+          <i class="fas fa-star"></i>
+          Quick Feedback
+        </h3>
+        <button class="btn-close" id="closeAnalysis">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="panel-content" id="analysisContent">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Loading feedback...</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============================================
+    TOAST NOTIFICATION
+    ============================================ -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script src="/js/ui.js"></script>
+    <script src="/js/audio.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

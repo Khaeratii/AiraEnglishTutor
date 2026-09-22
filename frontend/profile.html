@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aira - Profile</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icon-aira.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-comment-dots"></i></div>
+          <h2>Aira</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="/" class="nav-item"
+            ><i class="fas fa-comments"></i><span>Chat</span></a
+          ><a href="/history" class="nav-item"
+            ><i class="fas fa-history"></i><span>History</span></a
+          ><a href="/statistics" class="nav-item"
+            ><i class="fas fa-chart-line"></i><span>Statistics</span></a
+          ><a href="/analysis" class="nav-item"
+            ><i class="fas fa-clipboard-check"></i
+            ><span>Daily Analysis</span></a
+          ><a href="/profile" class="nav-item active"
+            ><i class="fas fa-user"></i><span>Profile</span></a
+          >
+        </nav>
+      </aside>
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1>Profile</h1>
+          <p>Manage your Aira account</p>
+        </header>
+        <div class="dashboard-content profile-content">
+          <section class="profile-hero">
+            <div class="profile-avatar" id="profileAvatar">A</div>
+            <div>
+              <p class="profile-eyebrow">YOUR LEARNING SPACE</p>
+              <h2 id="profileGreeting">Welcome back</h2>
+              <p id="profileEmailHero">Loading...</p>
+            </div>
+            <span class="profile-level" id="profileLevel">Loading...</span>
+          </section>
+          <section class="profile-card profile-account-card">
+            <div class="profile-section-heading">
+              <div>
+                <p class="profile-eyebrow">PERSONAL INFORMATION</p>
+                <h2>Account details</h2>
+              </div>
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="profile-details">
+              <p>
+                <strong>Name</strong><span id="profileName">Loading...</span>
+              </p>
+              <p>
+                <strong>Email</strong
+                ><span id="profileEmailDetail">Loading...</span>
+              </p>
+              <p>
+                <strong>Member since</strong
+                ><span id="profileCreated">Loading...</span>
+              </p>
+            </div>
+          </section>
+          <section class="profile-card">
+            <div class="profile-section-heading">
+              <div>
+                <p class="profile-eyebrow">YOUR PRACTICE</p>
+                <h2>Learning progress</h2>
+              </div>
+              <i class="fas fa-seedling"></i>
+            </div>
+            <div class="profile-stats">
+              <div>
+                <strong id="profileConversations">0</strong
+                ><span>Conversations</span>
+              </div>
+              <div>
+                <strong id="profileMessages">0</strong><span>Messages</span>
+              </div>
+              <div><strong id="profileTurns">0</strong><span>Turns</span></div>
+              <div>
+                <strong id="profileEvents">0</strong
+                ><span>Learning events</span>
+              </div>
+            </div>
+          </section>
+          <section class="profile-card profile-security-card">
+            <div class="profile-section-heading">
+              <div>
+                <p class="profile-eyebrow">ACCOUNT &amp; SECURITY</p>
+                <h2>Password</h2>
+              </div>
+              <i class="fas fa-shield-halved"></i>
+            </div>
+            <p class="profile-muted">
+              Your password is protected securely and is never displayed.
+            </p>
+            <form id="changePasswordForm">
+              <label for="currentPassword">Current Password</label
+              ><input
+                id="currentPassword"
+                type="password"
+                required
+                autocomplete="current-password"
+              /><label for="newPassword">New Password</label
+              ><input
+                id="newPassword"
+                type="password"
+                required
+                autocomplete="new-password"
+              /><label for="confirmPassword">Confirm New Password</label
+              ><input
+                id="confirmPassword"
+                type="password"
+                required
+                autocomplete="new-password"
+              /><button class="btn btn-primary" type="submit">
+                Change Password
+              </button>
+              <p id="profileMessage" role="status" class="profile-message"></p>
+            </form>
+          </section>
+          <section class="profile-actions">
+            <a href="/forgot-password">Forgot password?</a
+            ><button id="logoutProfile" class="profile-logout" type="button">
+              <i class="fas fa-arrow-right-from-bracket"></i> Sign out
+            </button>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="/js/profile.js"></script>
+  </body>
+</html>

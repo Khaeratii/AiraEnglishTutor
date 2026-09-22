@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aira - Daily Analysis</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icon-aira.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-container">
+      <aside class="dashboard-sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-comment-dots"></i></div>
+          <h2>Aira</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="/" class="nav-item"
+            ><i class="fas fa-comments"></i><span>Chat</span></a
+          >
+          <a href="/history" class="nav-item"
+            ><i class="fas fa-history"></i><span>History</span></a
+          >
+          <a href="/statistics" class="nav-item"
+            ><i class="fas fa-chart-line"></i><span>Statistics</span></a
+          >
+          <a href="/analysis" class="nav-item active"
+            ><i class="fas fa-clipboard-check"></i
+            ><span>Daily Analysis</span></a
+          >
+          <a href="/profile" class="nav-item"
+            ><i class="fas fa-user"></i><span>Profile</span></a
+          >
+        </nav>
+      </aside>
+
+      <main class="dashboard-main">
+        <header class="dashboard-header">
+          <h1>Aira's Daily Review</h1>
+          <p id="analysisDate">Today's English practice</p>
+          <button class="btn-primary" id="refreshBtn" onclick="loadAnalysis()">
+            <i class="fas fa-sync"></i> Refresh Analysis
+          </button>
+        </header>
+        <div id="analysisContent" class="dashboard-content">
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Analyzing today's practice...</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="/js/analysis.js"></script>
+  </body>
+</html>

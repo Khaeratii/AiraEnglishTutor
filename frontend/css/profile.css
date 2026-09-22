@@ -1,0 +1,211 @@
+.profile-content {
+  max-width: 920px;
+  display: grid;
+  gap: 18px;
+}
+.profile-hero,
+.profile-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(22, 137, 215, 0.08);
+}
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: linear-gradient(
+    120deg,
+    rgba(92, 200, 255, 0.22),
+    rgba(104, 199, 122, 0.18)
+  );
+}
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1689d7, #68c77a);
+  box-shadow: 0 8px 18px rgba(22, 137, 215, 0.24);
+}
+.profile-hero h2 {
+  margin: 2px 0 4px;
+  color: #17445e;
+  font-size: 22px;
+}
+.profile-hero p:not(.profile-eyebrow) {
+  color: #5a7a8f;
+  margin: 0;
+}
+.profile-eyebrow {
+  color: #1689d7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin: 0;
+}
+.profile-level {
+  margin-left: auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #1689d7;
+  font-size: 12px;
+  font-weight: 700;
+}
+.profile-card {
+  padding: 22px;
+}
+.profile-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+.profile-section-heading h2 {
+  color: #17445e;
+  font-size: 18px;
+  margin-top: 4px;
+}
+.profile-section-heading > i {
+  color: #1689d7;
+  font-size: 22px;
+}
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.profile-details p {
+  margin: 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(92, 200, 255, 0.08);
+}
+.profile-details strong,
+.profile-details span {
+  display: block;
+}
+.profile-details strong {
+  color: #8ba8b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.profile-details span {
+  color: #17445e;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.profile-stats div {
+  padding: 16px;
+  border-left: 3px solid #69d9e8;
+  background: rgba(105, 217, 232, 0.08);
+  border-radius: 10px;
+}
+.profile-stats strong,
+.profile-stats span {
+  display: block;
+}
+.profile-stats strong {
+  color: #1689d7;
+  font-size: 25px;
+}
+.profile-stats span {
+  color: #5a7a8f;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.profile-muted {
+  color: #5a7a8f;
+  font-size: 13px;
+  margin: -8px 0 18px;
+}
+.profile-security-card form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 14px;
+  align-items: end;
+}
+.profile-security-card label {
+  color: #17445e;
+  font-size: 12px;
+  font-weight: 600;
+}
+.profile-security-card input {
+  width: 100%;
+  padding: 11px 12px;
+  margin-top: 5px;
+  border: 1px solid rgba(92, 200, 255, 0.35);
+  border-radius: 10px;
+  background: #fff;
+  color: #17445e;
+}
+.profile-security-card button {
+  min-height: 42px;
+}
+.profile-message {
+  grid-column: 1/-1;
+  min-height: 20px;
+  margin: 0;
+  font-size: 13px;
+}
+.profile-message.success {
+  color: #2f8b48;
+}
+.profile-message.error {
+  color: #d34848;
+}
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 4px;
+}
+.profile-actions a {
+  color: #1689d7;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.profile-actions a:hover {
+  text-decoration: underline;
+}
+.profile-logout {
+  border: 0;
+  background: transparent;
+  color: #d34848;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+@media (max-width: 760px) {
+  .profile-details,
+  .profile-stats,
+  .profile-security-card form {
+    grid-template-columns: 1fr;
+  }
+  .profile-hero {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .profile-level {
+    margin-left: 80px;
+    margin-top: -8px;
+  }
+  .profile-actions {
+    padding-bottom: 12px;
+  }
+}
