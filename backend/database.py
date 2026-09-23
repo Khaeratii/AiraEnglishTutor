@@ -64,6 +64,7 @@ def init_db() -> None:
     missing_tables = sorted(required_tables.difference(inspector.get_table_names()))
     if missing_tables:
         try:
+            from . import models
             Base.metadata.create_all(bind=engine)
         except Exception as exc:
             raise RuntimeError(
