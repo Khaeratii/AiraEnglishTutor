@@ -429,6 +429,14 @@ body.app-body {
   text-decoration: none;
 }
 
+.btn:focus-visible,
+.nav-item:focus-visible,
+.input-area input:focus-visible,
+.btn-close:focus-visible {
+  outline: 3px solid rgba(22, 137, 215, 0.45);
+  outline-offset: 2px;
+}
+
 .btn i {
   font-size: 15px;
 }
@@ -1267,6 +1275,445 @@ body.app-body {
 }
 
 /* ============================================
+   MOBILE + TABLET EXPERIENCE
+   ============================================ */
+
+@media (max-width: 1199px) {
+  body.app-body {
+    overflow: hidden;
+  }
+
+  .app-container {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-container {
+    padding: max(8px, env(safe-area-inset-top))
+      max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom))
+      max(8px, env(safe-area-inset-left));
+    gap: 8px;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 100%;
+    max-height: none;
+    padding: 10px 12px;
+    gap: 10px 12px;
+    border-radius: 18px;
+    overflow: visible;
+  }
+
+  .logo {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo h2 {
+    font-size: 20px;
+  }
+
+  .sidebar-nav {
+    min-width: 0;
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-item {
+    min-height: 44px;
+    padding: 10px 11px;
+    gap: 7px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .nav-item span {
+    display: inline;
+  }
+
+  .nav-item i {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .user-info,
+  .sidebar-buttons,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .chat-area {
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .chat-header {
+    min-height: 62px;
+    padding: 10px 14px;
+  }
+
+  .header-info {
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .progress {
+    gap: 6px;
+  }
+
+  .progress-bar {
+    width: clamp(48px, 18vw, 80px);
+  }
+
+  .messages {
+    min-height: 0;
+    padding: 14px 12px;
+    gap: 12px;
+    overscroll-behavior: contain;
+  }
+
+  .message {
+    width: min(94%, 620px);
+    max-width: 94%;
+    gap: 8px;
+  }
+
+  .avatar-small {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .message-bubble {
+    padding: 11px 13px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .input-area {
+    padding: 10px 12px max(10px, env(safe-area-inset-bottom));
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.86);
+  }
+
+  .input-area input {
+    min-height: 48px;
+    padding: 12px 13px;
+    font-size: 16px;
+  }
+
+  .btn-voice,
+  .btn-send {
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
+  }
+
+  .input-hint {
+    padding: 4px 12px 8px;
+    font-size: 11px;
+  }
+
+  .analysis-panel {
+    top: max(8px, env(safe-area-inset-top));
+    right: max(8px, env(safe-area-inset-right));
+    width: calc(100% - 16px);
+    height: calc(100dvh - 16px);
+    padding: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .app-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .sidebar {
+    width: 208px;
+    padding: 18px 14px;
+  }
+
+  .chat-header {
+    padding-inline: 20px;
+  }
+
+  .messages {
+    padding: 20px;
+  }
+
+  .message {
+    max-width: min(78%, 680px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .messages {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   SIDEBAR SYSTEM
+   ============================================ */
+
+.mobile-nav-toggle,
+.sidebar-backdrop,
+.sidebar-close {
+  display: none;
+}
+
+.sidebar {
+  width: 236px;
+  padding: 20px;
+  gap: 0;
+  overflow-x: hidden;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+}
+
+.sidebar .logo {
+  gap: 11px;
+  padding-bottom: 18px;
+  min-width: 0;
+}
+
+.sidebar .logo-icon {
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+}
+
+.sidebar .logo h2 {
+  font-size: 22px;
+}
+
+.sidebar-primary-nav,
+.sidebar-secondary-nav {
+  flex: 0 0 auto;
+  width: 100%;
+  gap: 7px;
+}
+
+.sidebar-primary-nav {
+  margin-top: 22px;
+}
+
+.sidebar-secondary-nav {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(92, 200, 255, 0.15);
+}
+
+.sidebar .nav-item {
+  min-height: 46px;
+  padding: 11px 13px;
+  gap: 12px;
+}
+
+.sidebar .nav-item i {
+  width: 21px;
+  font-size: 17px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-bottom .user-info {
+  padding: 13px;
+}
+
+.sidebar-bottom .sidebar-buttons {
+  gap: 8px;
+}
+
+.sidebar-bottom .sidebar-footer {
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(92, 200, 255, 0.15);
+}
+
+.sidebar-close {
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(92, 200, 255, 0.1);
+  color: var(--deep-blue);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .sidebar {
+    width: 208px;
+    padding: 18px 16px;
+  }
+
+  .sidebar .logo h2 {
+    font-size: 20px;
+  }
+
+  .sidebar-primary-nav {
+    margin-top: 18px;
+  }
+
+  .sidebar-secondary-nav {
+    margin-top: 22px;
+    padding-top: 16px;
+  }
+
+  .sidebar .nav-item {
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  .app-container {
+    padding-top: 62px;
+  }
+
+  .mobile-nav-toggle {
+    position: fixed;
+    top: max(10px, env(safe-area-inset-top));
+    left: max(10px, env(safe-area-inset-left));
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--deep-blue);
+    box-shadow: 0 6px 18px rgba(22, 137, 215, 0.16);
+    font:
+      700 16px "Inter",
+      sans-serif;
+    cursor: pointer;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: block;
+    background: rgba(23, 68, 94, 0.26);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1150;
+    width: min(312px, 88vw);
+    height: 100dvh;
+    max-height: none;
+    padding: max(16px, env(safe-area-inset-top)) 18px
+      max(18px, env(safe-area-inset-bottom));
+    border-radius: 0 22px 22px 0;
+    transform: translateX(-105%);
+    transition: transform 0.24s ease;
+    overflow-y: auto;
+  }
+
+  .sidebar-header .logo {
+    padding-bottom: 0;
+    border: 0;
+  }
+
+  .sidebar .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar .logo h2 {
+    font-size: 21px;
+  }
+
+  .sidebar-close {
+    display: inline-flex;
+  }
+
+  .sidebar-primary-nav {
+    margin-top: 28px;
+  }
+
+  .sidebar-secondary-nav {
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+
+  .sidebar .nav-item {
+    min-height: 48px;
+    padding: 12px 13px;
+    font-size: 14px;
+  }
+
+  .sidebar-bottom {
+    margin-top: 28px;
+  }
+
+  .nav-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .nav-open .sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-backdrop {
+    transition: none;
+  }
+}
+
+/* ============================================
    RESTRAINED MOTION LAYER — CHAT
    ============================================ */
 
@@ -1616,10 +2063,6 @@ body.app-body {
 }
 
 @media (max-width: 768px) {
-  .app-container {
-    padding: 10px;
-  }
-
   .messages {
     padding: 18px 12px;
   }
@@ -1844,15 +2287,6 @@ body.app-body {
 }
 
 @media (max-width: 768px) {
-  .app-container {
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
   .messages {
     padding: 20px 12px;
   }
@@ -1863,5 +2297,79 @@ body.app-body {
 
   .input-area {
     margin: 0 8px;
+  }
+}
+
+/* ============================================
+   FINAL MOBILE NAVIGATION CONTRACT
+   ============================================ */
+
+@media (max-width: 767px) {
+  body.app-body {
+    overflow-x: hidden;
+  }
+
+  .app-container {
+    width: 100%;
+    min-height: 100dvh;
+    height: 100dvh;
+    padding: max(62px, calc(62px + env(safe-area-inset-top)))
+      max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom))
+      max(8px, env(safe-area-inset-left));
+    gap: 8px;
+  }
+
+  .chat-area {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .sidebar {
+    display: flex;
+    width: min(320px, 82vw);
+    max-width: 320px;
+    height: 100dvh;
+    max-height: none;
+    transform: translateX(-110%);
+    animation: none;
+  }
+
+  .nav-open .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Keep the drawer transform authoritative after visual refresh animations. */
+@media (max-width: 767px) {
+  .sidebar {
+    transform: translateX(-110%);
+    animation: none;
+  }
+
+  .sidebar-primary-nav,
+  .sidebar-secondary-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    overflow: visible;
+  }
+
+  .sidebar-primary-nav .nav-item,
+  .sidebar-secondary-nav .nav-item,
+  .sidebar-bottom button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .sidebar-bottom {
+    margin-top: auto;
+  }
+
+  .nav-open .sidebar {
+    transform: translateX(0);
   }
 }
